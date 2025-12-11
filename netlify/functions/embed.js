@@ -4,7 +4,7 @@ export async function handler(event) {
   const apiKey = process.env.GEMINI_API_KEY;
 
   const url =
-    "https://generativelanguage.googleapis.com/v1beta/models/text-embedding-004:embedText?key=" +
+    "https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-001:embedContent?key=" +
     apiKey;
 
   try {
