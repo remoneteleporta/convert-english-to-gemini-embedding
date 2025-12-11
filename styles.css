@@ -6,7 +6,6 @@ body {
         display: flex;
         justify-content: center;
     }
-
     .container {
         background: white;
         width: 500px;
@@ -14,13 +13,11 @@ body {
         border-radius: 12px;
         box-shadow: 0 4px 20px rgba(0,0,0,0.1);
     }
-
     h2 {
         margin-top: 0;
         text-align: center;
         color: #333;
     }
-
     input, textarea {
         width: 100%;
         padding: 12px;
@@ -29,7 +26,6 @@ body {
         border: 1px solid #ccc;
         font-size: 15px;
     }
-
     button {
         width: 100%;
         padding: 12px;
@@ -42,10 +38,7 @@ body {
         margin-top: 15px;
         transition: background 0.2s ease;
     }
-
-    button:hover {
-        background: #1d4ed8;
-    }
+    button:hover { background: #1d4ed8; }
 
     pre {
         background: #f1f5f9;

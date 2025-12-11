@@ -1,23 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8" />
-<title>Convert English to Gemini Embedding Vector</title>
+<title>Convert English to Gemini Embedding Vector Tool</title>
 <link rel="stylesheet" href="styles.css">
 <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.6/dist/purify.min.js"></script>
 </head>
+
 <body>
+<div class="box">
+  <h3>Gemini Embedding Generator</h3>
 
-<div class="container">
-    <h2>Gemini Embedding Generator</h2>
+  <textarea id="textInput" rows="3" placeholder="Enter text..."></textarea>
+  <button onclick="generateEmbedding()">Get Embedding</button>
 
-    <div class="label">Enter text:</div>
-    <textarea id="textInput" rows="3" placeholder="Type some English text..."></textarea>
-
-    <button onclick="getEmbedding()">Generate Embedding</button>
-
-    <pre id="output">Embedding output will appear here...</pre>
+  <pre id="output"></pre>
 </div>
-<script src="index.js"></script>
+
+<script type="module" src="index.js"></script>
+
 </body>
 </html>
