@@ -1,9 +1,8 @@
-document.getElementById("get-embedding").addEventListener("click", () =>{
 async function generateEmbedding() {
   const dirty = document.getElementById("textInput").value;
   const text = DOMPurify.sanitize(dirty, { ALLOWED_TAGS: [], ALLOWED_ATTR: [] });
   const output = document.getElementById("output");
-  
+
   if (!text.trim()) {
     output.textContent = "Please enter text.";
     return;
@@ -28,4 +27,4 @@ async function generateEmbedding() {
   } catch (err) {
     output.textContent = "Network error: " + err;
   }
-}})
+}
