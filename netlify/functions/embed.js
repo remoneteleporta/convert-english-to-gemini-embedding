@@ -1,17 +1,20 @@
-// netlify/functions/embed.js
 export async function handler(event) {
   const { text } = JSON.parse(event.body || "{}");
   const apiKey = process.env.GEMINI_API_KEY;
 
   const url =
-    "https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-001:embedContent?key=" +
+    "https://generativelanguage.googleapis.com/v1beta/models/text-embedding-004:embedContent?key=" +
     apiKey;
 
   try {
     const response = await fetch(url, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ text })
+      body: JSON.stringify({
+        input: {
+          text: text
+        }
+      })
     });
 
     const data = await response.json();
