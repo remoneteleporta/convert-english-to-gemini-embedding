@@ -1,6 +1,8 @@
 async function getEmbedding() {
-    const text = document.getElementById("textInput").value;
+    const dirtyText = document.getElementById("textInput").value;
     const output = document.getElementById("output");
+
+    const text = DOMPurify.sanitize(dirtyText, { ALLOWED_TAGS: [], ALLOWED_ATTR: [] });
 
     if (!text) {
         output.textContent = "Error: Please enter some text to embed.";
