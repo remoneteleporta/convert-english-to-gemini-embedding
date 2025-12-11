@@ -1,3 +1,4 @@
+// netlify/functions/embed.js
 export async function handler(event) {
   const { text } = JSON.parse(event.body || "{}");
   const apiKey = process.env.GEMINI_API_KEY;
@@ -11,8 +12,10 @@ export async function handler(event) {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        input: {
-          text: text
+        content: {
+          parts: [
+            { text: text }
+          ]
         }
       })
     });
