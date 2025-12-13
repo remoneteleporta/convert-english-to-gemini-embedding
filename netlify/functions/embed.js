@@ -1,4 +1,3 @@
-// netlify/functions/embed.js
 export async function handler(event) {
   const { text } = JSON.parse(event.body || "{}");
   const apiKey = process.env.GEMINI_API_KEY;
