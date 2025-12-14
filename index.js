@@ -21,6 +21,23 @@ async function generateEmbedding() {
 
     if (data.embedding?.values) {
       output.textContent = JSON.stringify(data.embedding.values, null, 2);
+
+      let embedding = data.embedding.values
+      const dbUrl = process.env.SUPABASE_URL
+
+      await fetch(`${dbUrl}/rest/v1/vectordoc`, {
+      method: "POST",
+     headers: {
+        apikey: process.env.SUPABASE_API_KEY,
+        Authorization: `Bearer ${process.env.SUPABASE_API_KEY}`,
+            "Content-Type": "application/json",
+            "Prefer": "return=minimal"
+      },
+      body: JSON.stringify({
+        content: text,
+        embedding: embedding
+      })
+    });
     } else {
       output.textContent = "API error:\n" + JSON.stringify(data, null, 2);
     }
