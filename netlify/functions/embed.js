@@ -20,6 +20,22 @@ export async function handler(event) {
     });
 
     const data = await response.json();
+    let embedding = data.embedding.values
+      const dbUrl = process.env.SUPABASE_URL
+
+      await fetch(`${dbUrl}/rest/v1/vectordoc`, {
+      method: "POST",
+     headers: {
+        apikey: process.env.SUPABASE_API_KEY,
+        Authorization: `Bearer ${process.env.SUPABASE_API_KEY}`,
+            "Content-Type": "application/json",
+            "Prefer": "return=minimal"
+      },
+      body: JSON.stringify({
+        content: text,
+        embedding: embedding
+      })
+    });
 
     return {
       statusCode: 200,
